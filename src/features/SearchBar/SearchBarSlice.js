@@ -8,7 +8,7 @@ export const search = createAsyncThunk(
     async (searchTerm) => {
         // insert fetch request here
         const encodedTerm = encodeURIComponent(searchTerm);
-        const url = `https://www.reddit.com/search.json?q=${encodedTerm}&limit=5`;
+        const url = `https://www.reddit.com/search.json?q=${encodedTerm}&limit=20`;
         const response = await fetch(url);
 
         if (!response.ok) {
@@ -23,8 +23,9 @@ export const search = createAsyncThunk(
             url: post.data.url,
             score: post.data.score,
             subreddit: post.data.subreddit,
-            subredditId: subreddit_id
+            subredditId: post.data.subreddit_id
         }));
+
     }
 );
   

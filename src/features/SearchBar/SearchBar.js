@@ -22,6 +22,7 @@ export default function SearchBar() {
         <input
             id="searchBar"
             type="text"
+            value={searchTerm}
             onChange={(e) => setSearchTerm(e.currentTarget.value)}
             placeholder="search..."
         />
