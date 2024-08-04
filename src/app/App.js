@@ -2,6 +2,8 @@ import './App.css';
 import SearchBar from '../features/SearchBar/SearchBar';
 import { Provider } from 'react-redux';
 import { store } from './store';
+import InitialView from '../features/Posts/InitialView/InitialView';
+
 
 function App() {
   return (
@@ -17,9 +19,7 @@ function App() {
           </p>
         </nav>
         <section>
-          <p>
-            reddit posts here
-          </p>
+          <InitialView />
         </section>
       </div>
     </Provider>

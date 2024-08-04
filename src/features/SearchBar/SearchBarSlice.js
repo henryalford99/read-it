@@ -1,5 +1,6 @@
 // Import createSlice here.
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import timeSince from './TimeSince';
 
 
 // Async thunk for Reddit JSON fetch request
@@ -20,10 +21,19 @@ export const search = createAsyncThunk(
 
         return data.data.children.map(post => ({
             title: post.data.title,
+            id: post.data.id,
+            author: post.data.author,
+            authorIsBlocked: post.data.author_is_blocked,
             url: post.data.url,
             score: post.data.score,
-            subreddit: post.data.subreddit,
-            subredditId: post.data.subreddit_id
+            subreddit: post.data.subreddit_name_prefixed,
+            subredditId: post.data.subreddit_id,
+            ups: post.data.ups,
+            upvoteRatio: post.data.upvote_ratio,
+            thumbnail: post.data.thumbnail,
+            thumbnailRatio: {height: post.data.thumbnail_height, width: post.data.thumbnail_width},
+            time: timeSince(post.data.created_utc),
+            comments: post.data.num_comments
         }));
 
     }
@@ -34,7 +44,7 @@ export const search = createAsyncThunk(
 const options = {
     name: 'searchBar',
     initialState: {
-        searchResults: {},
+        searchResults: [],
         isSearching: false,
         hasError: false
     },
