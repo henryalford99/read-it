@@ -12,14 +12,23 @@ export default function InitialView() {
             {loading && <p>Loading...</p>}
             {error && <p>Error: Retry search.</p>}
             {allPosts && allPosts.map((result) => (
-                <div className="post" key={result.id}>
-                    <p className="postSubReddit">{result.subreddit}</p>
-                    <p className="postTime"> {result.time}</p>
-                    <p className="postTitle">{result.title}</p>
-                    {result.ups < 1000 && <p className="postUpvotes">{`${result.ups} votes`}</p>}
-                    {result.ups >= 1000 && <p className="postUpvotes">{`${Math.round(result.ups / 1000)}k votes`}</p>}
-                    {!result.thumbnail.includes('external-preview') && <img className="postThumbnail" src={result.thumbnail}/>}
-                    <p className="postComments">{`${result.comments} comments`}</p>
+                <div className="postFlex" key={result.id}>
+                    <div className="post">
+                        <div className="aboveTitle">
+                            <p className="postSubReddit">{result.subreddit}</p>
+                            <div className="circle-divider"></div>
+                            <p className="postTime"> {result.time}</p>
+                        </div>
+                        <p className="postTitle">{result.title}</p>
+                        <div className="belowTitle">
+                            {result.ups < 1000 ? <p className="postUpvotes">{`${result.ups} votes`}</p> : <p className="postUpvotes">{`${Math.round(result.ups / 1000)}K votes`}</p>}
+                            <div className="circle-divider"></div>
+                            <p className="postComments">{`${result.comments} comments`}</p>
+                        </div>
+                    </div>
+                    <div className="thumbnailContainer">
+                        {!result.thumbnail.includes('external-preview') && <img className="postThumbnail" src={result.thumbnail} alt="Sample Image"/>}
+                    </div>
                 </div>
             ))}
         </div>

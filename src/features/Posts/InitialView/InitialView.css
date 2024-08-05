@@ -1,7 +1,73 @@
+/* Layered Post Container Divs */
+
 .postHolder {
     border: 1px solid black;
 }
+.postFlex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+    margin: 20px 17%;
+}
 
 .post {
-    border: 1px solid black;
+    text-align: left;
+    margin: 20px;
+}
+
+/* Data Above Post Title */
+.aboveTitle {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    height: 25px;
+    color: #5c6c74
+}
+.postTime {
+    font-size: 0.8rem;
+}
+.circle-divider {
+    width: 2px;
+    height: 2px;
+    background-color: #5c6c74; /* Color of the circle */
+    border-radius: 50%; /* Makes the div a circle */
+}
+.postSubReddit {
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+/* Post Title */
+.postTitle {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+/* Data Below Post Title */
+.belowTitle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 25px;
+    color: #5c6c74;
+}
+.postUpvotes {
+    font-size: 0.8rem;
+}
+.postComments {
+    font-size: 0.8rem;
+}
+
+/* Thumbnail */
+.thumbnailContainer {
+    height: 140px;
+    width: 140px;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.postThumbnail {
+    border-radius: 15px;
 }
