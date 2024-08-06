@@ -33,7 +33,8 @@ export const search = createAsyncThunk(
             thumbnail: post.data.thumbnail,
             thumbnailRatio: {height: post.data.thumbnail_height, width: post.data.thumbnail_width},
             time: timeSince(post.data.created_utc),
-            comments: post.data.num_comments
+            comments: post.data.num_comments,
+            selfText: post.data.selftext
         }));
 
     }
@@ -73,7 +74,8 @@ export const searchResultsSlice = createSlice(options)
 
 
 // Selectors:
-export const selectSearchResults = (state) => state.searchBar.searchResults;
-export const isSearching = (state) => state.searchBar.isSearching;
+export const selectSearchResults = (state) => state.search.searchResults;
+export const selectIsSearching = (state) => state.search.isSearching;
+export const selectHasError = (state) => state.search.hasError;
 
 export default searchResultsSlice.reducer;

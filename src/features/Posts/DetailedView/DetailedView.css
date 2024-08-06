@@ -1,0 +1,9 @@
+.detailedPost {
+    position: fixed;
+    top: 25%;
+    border: 1px solid black;
+    right: 8%;
+    background-color: gray;
+    width: 84%;
+    height: 50%;
+}

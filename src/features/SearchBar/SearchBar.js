@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { search, selectSearchResults, isSearching } from "./SearchBarSlice";
+import { search } from "./SearchBarSlice";
 
 
 export default function SearchBar() {

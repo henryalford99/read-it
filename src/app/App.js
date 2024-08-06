@@ -1,28 +1,29 @@
 import './App.css';
+import React from 'react';
 import SearchBar from '../features/SearchBar/SearchBar';
-import { Provider } from 'react-redux';
-import { store } from './store';
+import { useSelector } from 'react-redux';
 import InitialView from '../features/Posts/InitialView/InitialView';
+import DetailedView from '../features/Posts/DetailedView/DetailedView';
+import { selectSelectedResult } from '../features/Posts/postsSlice';
 
 
 function App() {
+  const selectedPost = useSelector(selectSelectedResult);
+  
   return (
-    <Provider store={store}>
-      <div className="App">
-        <nav className="App-nav">
-          <p>
-            LOGO
-          </p>
-          <SearchBar />
-          <p>
-            subreddits
-          </p>
-        </nav>
-        <section>
-          <InitialView />
-        </section>
-      </div>
-    </Provider>
+    <div className="App">
+      <nav className="App-nav">
+        <p>
+          LOGO
+        </p>
+        <SearchBar />
+        <p>
+          subreddits
+        </p>
+      </nav>
+      <InitialView />
+      {selectedPost && <DetailedView />}
+    </div>
   );
 }
 
