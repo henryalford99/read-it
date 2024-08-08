@@ -2,15 +2,13 @@ import React, { useEffect, useState } from "react";
 import './DetailedView.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectSelectedResult, clearSelectedItem } from "../postsSlice";
-import { fetchComments, selectComments } from '../../Comments/CommentsSlice';
+import { fetchComments } from '../../Comments/CommentsSlice';
+import Comments from "../../Comments/Comments.js";
 
 export default function DetailedView() {
     const dispatch = useDispatch();
     const post = useSelector(selectSelectedResult);
-    const comments = useSelector(selectComments);
     const [videoError, setVideoError] = useState(false);
-
-    const [commentsOnOff, setCommentsOnOff] = useState(false);
 
     useEffect(() => {
         // Disable scrolling on the main page when the modal is open
@@ -45,9 +43,9 @@ export default function DetailedView() {
         setVideoError(false);
     };
 
-    const toggleComments = () => {
-        setCommentsOnOff(!commentsOnOff)
-    }
+    const isImageUrl = (url) => {
+        return /\.(jpeg|jpg|png)$/i.test(url);
+    };
 
     return (
         <div className="detailedPost">
@@ -73,16 +71,15 @@ export default function DetailedView() {
                         {videoError && "Your browser does not support the video tag."}
                     </video>
                 </div>
+            ) : isImageUrl(post.url) ? (
+                <div className="imageContainer">
+                    <img src={post.url} alt={post.title} style={{ width: '100%', height: 'auto' }} />
+                </div>
             ) : null}
+            <a href={post.url} target="_blank" rel="noopener noreferrer" className="linkToPost">See Full Post</a>
 
-            <div className="commentsSection">
-                <h3 className="commentsButton" onClick={toggleComments}>Comments</h3>
-                {comments.map(comment => (
-                    <div key={comment.id} style={{ display: commentsOnOff ? 'block' : 'none' }}>
-                        <p><strong>{comment.author}</strong>: {comment.body}</p>
-                    </div>
-                ))}
-            </div>
+
+            <Comments />
         </div>
     );
 };

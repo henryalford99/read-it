@@ -4,12 +4,20 @@ import { useSelector, useDispatch } from 'react-redux';
 import { selectItem } from "../postsSlice";
 import { selectHasError, selectIsSearching, selectSearchResults } from "../../SearchBar/SearchBarSlice";
 
+export const truncateText = (text, maxLength) => {
+    if (text.length <= maxLength) return text;
+    return text.substring(0, maxLength) + '...';
+}
+
+
 export default function InitialView() {
     const dispatch = useDispatch();
     
     const allPosts = useSelector(selectSearchResults);
     const error = useSelector(selectHasError);
     const loading = useSelector(selectIsSearching);
+
+    const maxTextLength = 300;
 
     const handleResultSelection = (id) => {
         const selectedPost = allPosts.find(post => post.id === id);
@@ -31,7 +39,7 @@ export default function InitialView() {
                             <p className="postTime"> {result.time}</p>
                         </div>
                         <p className="postTitle">{result.title}</p>
-                        <p className="postText">{result.selfText}</p>
+                        <p className="postText">{truncateText(result.selfText, maxTextLength)}</p>
                         <div className="belowTitle">
                             {result.ups < 1000 ? <p className="postUpvotes">{`${result.ups} votes`}</p> : <p className="postUpvotes">{`${Math.round(result.ups / 1000)}K votes`}</p>}
                             <div className="circle-divider"></div>

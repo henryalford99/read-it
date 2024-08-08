@@ -24,17 +24,6 @@
     cursor: pointer;
 }
 
-.commentsSection {
-    margin-top: 20px;
-    overflow-y: auto;
-}
-.commentsButton {
-    cursor: pointer;
-    font-size: 20px;
-    border: 1px solid black;
-    padding: 15px;
-}
-
 .videoContainer {
     display: flex;
     justify-content: center;
