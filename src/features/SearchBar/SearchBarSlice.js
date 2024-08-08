@@ -34,7 +34,8 @@ export const search = createAsyncThunk(
             thumbnailRatio: {height: post.data.thumbnail_height, width: post.data.thumbnail_width},
             time: timeSince(post.data.created_utc),
             comments: post.data.num_comments,
-            selfText: post.data.selftext
+            selfText: post.data.selftext,
+            media: post.data.media
         }));
 
     }

@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
   
 
-// Options object for Topics Slice:
+// Options object for Posts Slice:
 const options = {
     name: 'posts',
     initialState: {
@@ -18,7 +18,9 @@ const options = {
         },
     }
 }
-// Topics Slice:
+
+
+// Posts Slice:
 export const postsSlice = createSlice(options)
 
 
