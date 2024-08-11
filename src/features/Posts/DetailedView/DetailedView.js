@@ -13,17 +13,6 @@ export default function DetailedView() {
     const [subredditIcon, setSubredditIcon] = useState('');
 
     useEffect(() => {
-        // Disable scrolling on the main page when the modal is open
-        document.body.style.overflow = 'hidden';
-
-        // Re-enable scrolling when the modal is closed
-        return () => {
-            console.log('Cleanup: Re-enabling scrolling');
-            document.body.style.overflow = 'auto';
-        };
-    }, []); // Use an empty dependency array to run only on mount and unmount
-
-    useEffect(() => {
         if (post) {
             dispatch(fetchComments(post));
             fetchSubredditInfo(post.subreddit).then(icon => setSubredditIcon(icon));
