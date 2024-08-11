@@ -1,5 +1,4 @@
-
-
+/* Detailed View Overall Specs */
 .detailedPost {
     position: fixed;
     top: 50%;
@@ -10,12 +9,13 @@
     overflow-y: auto;
     background: white;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.463);
     z-index: 1000;
     text-align: left;
     margin: 0;
 }
 
+/* Video Player */
 .videoContainer {
     display: flex;
     justify-content: center;
@@ -31,6 +31,7 @@
     object-fit: contain;
 }
 
+/* Header Overall Specs*/
 .header-container {
     display: flex; /* Align child elements in a row */
     align-items: center; /* Center items vertically */
@@ -39,6 +40,7 @@
     flex-wrap: wrap;
 }
 
+/* X Button */
 .closeDetailed {
     /* Add styles for the close button if needed */
     font-size: 1.5rem; /* Adjust size as needed */
@@ -47,23 +49,23 @@
     cursor: pointer; /* Show pointer cursor on hover */
     padding: 1px 8px;
 }
-
 .closeDetailed:hover {
     background-color: black;
     color: white;
     border-radius: 50%;
 }
 
+/* Above Title Elements */
 .detailed-aboveTitle {
     display: flex; /* Flexbox for content alignment within */
     flex-direction: column; /* Align items vertically within this container */
 }
 
+/* Subreddit Icon Add Button */
 .subredditIconContainer {
     position: relative;
     display: inline-block;
 }
-
 .subredditIconButton {
     background: none;
     border: none;
@@ -72,7 +74,6 @@
     position: relative;
     display: inline-flex;
 }
-
 .subredditIcon {
     width: 40px;
     height: 40px;
@@ -80,8 +81,6 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: opacity 0.3s ease;
 }
-
-
 .iconOverlay {
     position: absolute;
     top: 0;
@@ -96,23 +95,19 @@
     transition: opacity 0.3s ease;
     border-radius: 50%;
 }
-
 .plusIcon {
     color: white;
     font-size: 24px;
     font-weight: bold;
 }
-
 .subredditIconButton:hover .subredditIcon {
     opacity: 0.5; /* Fades the image on hover */
 }
-
 .subredditIconButton:hover .iconOverlay {
     opacity: 1; /* Shows the overlay on hover */
 }
-
 .saveSubredditButton {
-    color: #ff4400;
+    color: black;
     border: none; /* Remove border */
     border-radius: 50%; /* Rounded corners */
     cursor: pointer; /* Pointer cursor on hover */
@@ -126,6 +121,7 @@
     color: white; /* Text color */
 }
 
+/* Subreddit, Date, and Author */
 .detailed-lineone {
     display: flex;
     align-items: center;
@@ -153,14 +149,13 @@
 .detailed-postSubReddit {
     font-weight: 700;
 }
-
 .detailed-postSubReddit:hover,
 .detailed-postAuthor:hover {
     color: #0079d3; 
     text-decoration: underline; 
 }
 
-
+/* Upvotes */
 .post-upvotes-container {
     display: flex;
     flex-direction: column;
@@ -171,7 +166,6 @@
     right: 0;
     top: 0;
 }
-
 .upvote, .downvote {
     background: none;
     border: none;
@@ -181,21 +175,18 @@
     padding: 0 10px; 
     transition: color 0.3s ease;
 }
-
 .upvote:hover {
     color: #00cc66;
 }
 .downvote:hover {
     color: #cc0000;
 }
-
 .detailed-postUpvotes {
     font-size: 1.5rem; 
     margin: 0 10px; 
 }
 
-
-
+/* Title and Full Post Link*/
 .title-container {
     display: flex;
     gap: 15px;
@@ -218,7 +209,6 @@
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.2s ease; 
 }
-
 .linkToPost:hover {
     background-color: #0166b3;
     color: white;
