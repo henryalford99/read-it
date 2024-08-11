@@ -1,6 +1,6 @@
 // Import createSlice here.
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import timeSince from './TimeSince';
+import timeSince from '../../components/TimeSince';
 
 
 // Async thunk for Reddit JSON fetch request

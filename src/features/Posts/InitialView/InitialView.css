@@ -1,16 +1,17 @@
 /* Layered Post Container Divs */
 
-.postHolder {
-    border: 1px solid black;
-}
+
 .postFlex {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid black;
     margin: 20px 17%;
     cursor: pointer;
     background-color: white;
+    transition: background-color 0.2s ease;
+}
+.postFlex:hover {
+    background-color: rgb(234, 234, 234);
 }
 
 .post {

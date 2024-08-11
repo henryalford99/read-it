@@ -7,4 +7,52 @@
     font-size: 20px;
     border: 1px solid black;
     padding: 15px;
+    text-align: center;
+}
+.commentsButton:hover {
+    background-color: rgba(0, 0, 0, 0.245);
+    color: black;
+    border: none;
+    font-size: 21px;
+}
+
+.comment {
+    background-color: rgba(128, 128, 128, 0.099);
+    transition: background-color 0.5s ease;
+    margin: 8px 5px;
+    display: flex;
+    justify-content: space-between;
+}
+.comment:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.463);
+}
+
+.commenter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px;
+    padding: 0;
+    width: 100px;
+}
+
+.commenter {
+    text-decoration: none;
+    color: #0079d3;
+    margin: 0;
+}
+.commenter:hover {
+    color: #015291;
+}
+
+.commentTime {
+    margin: 0;
+}
+
+.commentBody {
+    margin: 0;
+    padding: 20px 10px;
+    width: 900px;
 }
