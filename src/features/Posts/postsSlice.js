@@ -7,15 +7,15 @@ import { createSlice } from '@reduxjs/toolkit';
 const options = {
     name: 'posts',
     initialState: {
-        selectedResult: null,
+      selectedResult: null,
     },
     reducers: {
-        selectItem: (state, action) => {
-          state.selectedResult = action.payload;
-        },
-        clearSelectedItem: (state) => {
-          state.selectedResult = null;
-        },
+      selectItem: (state, action) => {
+        state.selectedResult = action.payload;
+      },
+      clearSelectedItem: (state) => {
+        state.selectedResult = null;
+      },
     }
 }
 
