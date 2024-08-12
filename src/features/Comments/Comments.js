@@ -16,8 +16,8 @@ export default function Comments() {
 
     return (
         <div className="commentsSection">
-            <h3 className="commentsButton" onClick={toggleComments}>Comments</h3>
-            <div className="comments" style={{ display: commentsOnOff ? 'block' : 'none' }}>
+            <h3 className="commentsButton" style={{ display: !commentsOnOff ? 'block' : 'none' }} onClick={toggleComments}>Comments</h3>
+            <div className="comments" style={{ display: commentsOnOff ? 'block' : 'none' }} >
                 {comments.map(comment => (
                 <div key={comment.id} className="comment">
                     <div className="commenter-container">    

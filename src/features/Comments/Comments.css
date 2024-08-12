@@ -22,6 +22,7 @@
     margin: 8px 5px;
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
 }
 .comment:hover {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.463);
@@ -29,13 +30,11 @@
 
 .commenter-container {
     display: flex;
-    flex-direction: column;
     align-items: left;
     justify-content: center;
     gap: 10px;
     margin: 10px;
     padding: 0;
-    width: 100px;
 }
 
 .commenter {
@@ -53,6 +52,5 @@
 
 .commentBody {
     margin: 0;
-    padding: 20px 10px;
-    width: 900px;
+    padding: 0 20px 20px;
 }
