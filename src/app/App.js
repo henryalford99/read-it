@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import InitialView from '../features/Posts/InitialView/InitialView';
 import DetailedView from '../features/Posts/DetailedView/DetailedView';
 import { selectSelectedResult } from '../features/Posts/postsSlice';
+import Subreddits from '../features/Subreddits/Subreddits';
 
 
 function App() {
@@ -17,9 +18,7 @@ function App() {
           LOGO
         </p>
         <SearchBar />
-        <p>
-          subreddits
-        </p>
+        <Subreddits />
       </nav>
       <InitialView />
       {selectedPost && <DetailedView />}

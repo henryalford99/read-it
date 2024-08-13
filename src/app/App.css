@@ -9,5 +9,7 @@
 nav {
   display: flex;
   justify-content: space-between;
-  background-color: white;
+  align-items: center;
+  background-color: black; 
+  padding: 0 5%;
 }
