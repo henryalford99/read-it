@@ -181,9 +181,24 @@
 .downvote:hover {
     color: #cc0000;
 }
+.upvote.active {
+    color: #00cc66;
+}
+.downvote.active {
+    color: #cc0000;
+}
 .detailed-postUpvotes {
     font-size: 1.5rem; 
     margin: 0 10px; 
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.detailed-postUpvotes.upvoted {
+    color: #00a000; /* Green color */
+}
+
+.detailed-postUpvotes.downvoted {
+    color: #e50000; /* Red color */
 }
 
 /* Title and Full Post Link*/

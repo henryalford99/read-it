@@ -11,6 +11,18 @@ export default function DetailedView() {
     const post = useSelector(selectSelectedResult);
     const [videoError, setVideoError] = useState(false);
     const [subredditIcon, setSubredditIcon] = useState('');
+    const [upvoted, setUpvoted] = useState(false);
+    const [downvoted, setDownvoted] = useState(false);
+
+    const handleUpvote = () => {
+        setUpvoted(!upvoted);
+        if (downvoted) setDownvoted(false); // Ensure downvote is reset
+    };
+
+    const handleDownvote = () => {
+        setDownvoted(!downvoted);
+        if (upvoted) setUpvoted(false); // Ensure upvote is reset
+    };
 
     useEffect(() => {
         if (post) {
@@ -102,11 +114,29 @@ export default function DetailedView() {
             </div>
 
             <div className="post-upvotes-container">
-                <button type="button" className="upvote" aria-label="Upvote">
+                <button 
+                    type="button" 
+                    className={`upvote ${upvoted ? 'active' : ''}`} 
+                    aria-label="Upvote"
+                    onClick={handleUpvote}
+                >
                     &#9650;
                 </button>
-                {post.ups < 1000 ? <p className="detailed-postUpvotes">{post.ups}</p> : <p className="detailed-postUpvotes">{`${(post.ups / 1000).toFixed(1)}k`}</p>}
-                <button type="button" className="downvote" aria-label="Downvote">
+                {post.ups < 1000 ? (
+                    <p className={`detailed-postUpvotes ${upvoted ? 'upvoted' : downvoted ? 'downvoted' : ''}`}>
+                        {post.ups}
+                    </p>
+                ) : (
+                    <p className={`detailed-postUpvotes ${upvoted ? 'upvoted' : downvoted ? 'downvoted' : ''}`}>
+                        {`${(post.ups / 1000).toFixed(1)}k`}
+                    </p>
+                )}                
+                <button 
+                    type="button" 
+                    className={`downvote ${downvoted ? 'active' : ''}`} 
+                    aria-label="Downvote"
+                    onClick={handleDownvote}
+                >
                     &#9660;
                 </button>
             </div>

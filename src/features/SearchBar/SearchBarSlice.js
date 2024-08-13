@@ -35,7 +35,7 @@ export const search = createAsyncThunk(
             time: timeSince(post.data.created_utc),
             comments: post.data.num_comments,
             selfText: post.data.selftext,
-            media: post.data.media
+            media: post.data.media,
         }));
 
     }
