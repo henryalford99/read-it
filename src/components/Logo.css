@@ -1,0 +1,43 @@
+.logo-container {
+    position: relative;
+    top: 5px;
+    margin: 5px;
+}
+
+.logo-button {
+    font-size: 2.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    padding: 0;
+    font-family: 'Sacramento', 'Brush Script MT', cursive;
+}
+
+.about-dropdown {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 98px;
+    width: 150px;
+}
+
+.logo-container:hover .about-dropdown {
+    display: block;
+}
+
+.about-dropdown p {
+    margin: 0;
+    font-size: 2.5rem;
+    color: #0079d3;
+    font-family: 'Sacramento', 'Brush Script MT', cursive;
+}
+
+.about-dropdown a {
+    color: #0079d3;
+    text-decoration: none;
+}
+
+.about-dropdown a:hover {
+    text-decoration: underline;
+}

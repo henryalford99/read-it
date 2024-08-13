@@ -3,12 +3,13 @@
 }
   
 .subreddits-button {
-    background-color: #0079d3;
     color: white;
-    font-size: 16px;
+    font-size: 2.5rem;
     border: none;
     cursor: pointer;
+    background-color: black;
     height: 51px;
+    font-family: 'Sacramento', 'Brush Script MT', cursive;
 }
   
 .subreddits-list {

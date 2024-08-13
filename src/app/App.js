@@ -6,6 +6,7 @@ import InitialView from '../features/Posts/InitialView/InitialView';
 import DetailedView from '../features/Posts/DetailedView/DetailedView';
 import { selectSelectedResult } from '../features/Posts/postsSlice';
 import Subreddits from '../features/Subreddits/Subreddits';
+import Logo from '../components/Logo';
 
 
 function App() {
@@ -14,9 +15,7 @@ function App() {
   return (
     <div className="App">
       <nav className="App-nav">
-        <p>
-          LOGO
-        </p>
+        <Logo />
         <SearchBar />
         <Subreddits />
       </nav>
