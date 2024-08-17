@@ -8,7 +8,6 @@
     font-size: 2.5rem;
     background: none;
     border: none;
-    cursor: pointer;
     color: white;
     padding: 0;
     font-family: 'Sacramento', 'Brush Script MT', cursive;
@@ -20,6 +19,7 @@
     top: 0;
     left: 98px;
     width: 150px;
+    cursor: pointer;
 }
 
 .logo-container:hover .about-dropdown {

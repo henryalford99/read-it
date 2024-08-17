@@ -1,5 +1,6 @@
 .subreddits-dropdown {
-    
+    position: relative;
+    display: inline-block;
 }
   
 .subreddits-button {
@@ -17,8 +18,14 @@
     position: absolute;
     background-color: #f1f1f1;
     min-width: 160px;
+    max-width: calc(100vw - 20px); /* Prevent overflow off the page */
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    z-index: 2000;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 55px;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    white-space: nowrap; /* Prevent text wrapping */
 }
   
 .subreddits-dropdown:hover .subreddits-list {
@@ -30,17 +37,37 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-  
-.subreddit-item span {
+    white-space: nowrap; /* Prevent text wrapping */
     cursor: pointer;
+}
+.subreddit-item:hover {
+    background-color: #cccccc;
 }
   
 .remove-button {
-    background-color: red;
-    color: white;
+    background-color: transparent;
+    color: black;
     border: none;
+    border-radius: 50%;
     cursor: pointer;
-    padding: 5px 10px;
+    padding-bottom: 5px;
+    padding-left: 6px;
+    font-size: 2rem;
+    width: 20px; 
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    line-height: 1; /* Ensures the minus sign is vertically centered */
+    transition: background-color 0.3s ease;
 }
-  
+
+.remove-button:hover {
+    background-color: #ff4400;
+    color: white; /* Changes minus sign color to white when hovered over */
+}
+
+.remove-button:active {
+    transform: scale(0.85); /* Shrinks the button down */
+}

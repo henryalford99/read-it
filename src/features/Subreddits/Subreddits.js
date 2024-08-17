@@ -20,9 +20,9 @@ const Subreddits = () => {
       <button className="subreddits-button">Subreddits</button>
       <div className="subreddits-list">
         {savedSubreddits.map(subreddit => (
-          <div key={subreddit} className="subreddit-item">
-            <span onClick={() => handleSelect(subreddit)}>{subreddit}</span>
-            <button onClick={() => handleRemove(subreddit)} className="remove-button">Remove</button>
+          <div key={subreddit} className="subreddit-item" onClick={() => handleSelect(subreddit)}>
+            <span>{subreddit}</span>
+            <button onClick={() => handleRemove(subreddit)} className="remove-button">-</button>
           </div>
         ))}
       </div>

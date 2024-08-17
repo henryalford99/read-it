@@ -13,3 +13,7 @@ nav {
   background-color: black; 
   padding: 0 5%;
 }
+
+button:active {
+  transform: scale(0.85); /* Shrinks the button down */
+}

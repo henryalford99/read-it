@@ -12,10 +12,13 @@ const options = {
     },
     reducers: {
       removeSubreddit: (state, action) => {
-        state.savedSubreddits.filter(subreddit => subreddit !== action.payload);
+        const updatedSavedSubreddits = state.savedSubreddits.filter(subreddit => subreddit !== action.payload);
+        state.savedSubreddits = updatedSavedSubreddits;
       },
       addSubreddit: (state, action) => {
-        state.savedSubreddits.unshift(action.payload);
+        if (!state.savedSubreddits.includes(action.payload)) {
+          state.savedSubreddits.unshift(action.payload);
+        }
       },
       selectSubreddit: (state, action) => {
         state.selectedSubreddit = action.payload;
