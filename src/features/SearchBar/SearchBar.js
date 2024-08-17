@@ -1,10 +1,15 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { search } from "./SearchBarSlice";
+import { selectSavedSubreddits, selectSubreddit, selectSelectedSubreddit, removeSubreddit } from "../Subreddits/SubredditsSlice";
+import './SearchBar.css';
+import logo from '../../assets/search-icon.svg'
 
 
 export default function SearchBar() {
   const dispatch = useDispatch();
+  const savedSubreddits = useSelector(selectSavedSubreddits);
+  const searchSubreddit = useSelector(selectSelectedSubreddit);
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSubmit = (e) => {
@@ -12,22 +17,46 @@ export default function SearchBar() {
     if (searchTerm.length === 0) {
       return;
     }
-    dispatch(search(searchTerm));
+    let formattedSearchSubreddit = '';
+    if (searchSubreddit) {
+      formattedSearchSubreddit = `${searchSubreddit}/`;
+    }
+    dispatch(search({searchTerm, subreddit: formattedSearchSubreddit}));
     setSearchTerm('');
   };
 
+  const handleSelectSubreddit = (subreddit) => {
+    dispatch(selectSubreddit(subreddit));
+  };
+
+  const handleRemove = (subreddit) => {
+    dispatch(removeSubreddit(subreddit));
+  };
+
   return (
-    <section>
-      <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="searchBarForm">
+        <div className={`search-subreddit-container ${searchSubreddit ? 'visible' : ''}`}>
+          <button 
+            type="button" 
+            className='resetButton'
+            onClick={(e) => {
+              e.stopPropagation(); // Prevents click from bubbling up
+              dispatch(selectSubreddit(null)); // Assuming you have a Redux action to reset the subreddit
+            }}
+          >&times;</button>
+          {searchSubreddit}
+        </div>
         <input
-            id="searchBar"
-            type="text"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.currentTarget.value)}
-            placeholder="search..."
+          id="searchBar"
+          type="text"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.currentTarget.value)}
+          placeholder={searchSubreddit ? `search in ${searchSubreddit}...` : 'search...'}
+          className="searchInput"
         />
-        <button className="searchButton" type="submit">search</button>
-      </form>
-    </section>
+        <button className="searchButton" type="submit">
+          <img id="searchIcon" src={logo} alt="Logo" width={22} height={22} />
+        </button>
+    </form>
   );
 }

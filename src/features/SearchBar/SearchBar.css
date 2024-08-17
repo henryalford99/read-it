@@ -1,0 +1,95 @@
+/* Styling for the parent form */
+.searchBarForm {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    width: 50%;
+    background-color: white;
+    padding: 5px;
+    border-radius: 15px;
+}
+/* Hover effect for the parent form */
+.searchBarForm:hover {
+    background-color: rgb(208, 206, 206);
+}
+/* Ensure search input background matches parent on hover */
+.searchBarForm:hover .searchInput {
+    background: none; /* Ensure background matches parent on hover */
+}
+
+.search-subreddit-container {
+    display: none;
+    gap: 6px;
+    background-color: #ff4400;
+    padding: 5px 10px;
+    border-radius: 25px;
+    color: white;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+.search-subreddit-container.visible {
+    display: flex;
+}
+  
+.resetButton {
+    background-color: black;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 50%; /* Makes the button circular */
+    width: 18px; /* Adjust size as needed */
+    height: 18px; /* Adjust size as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth color transitions */
+    display: flex; /* Initially hidden; will be overridden by JS */
+}
+.resetButton:hover {
+    background-color: rgba(0, 0, 0, 0.634); /* Black background on hover */
+    color: white; /* White X on hover */
+}
+
+  
+/* Styling for the search input */
+.searchInput {
+    flex-grow: 1;
+    font-size: 0.9rem;
+    border: none; /* Remove default border */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    margin-left: 8px;
+    background: none; /* Remove default background */
+    color: inherit; /* Inherit text color from parent */
+    outline: none; /* Remove focus outline */
+    min-width: none;
+}
+
+/* Autofill styling for WebKit browsers (Chrome, Safari) */
+.searchInput:-webkit-autofill {
+    background: none !important; /* Ensure background matches parent */
+    -webkit-text-fill-color: inherit; /* Match text color */
+    border: none; /* Ensure border is consistent */
+    box-shadow: 0 0 0 100px none inset; /* Match shadow */
+}
+
+/* Autofill styling for Firefox */
+.searchInput:-moz-autofill {
+    background: none !important; /* Ensure background matches parent */
+    color: inherit; /* Match text color */
+    border: none; /* Ensure border is consistent */
+}
+
+  
+.searchButton {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+
+  

@@ -67,7 +67,3 @@
     background-color: #ff4400;
     color: white; /* Changes minus sign color to white when hovered over */
 }
-
-.remove-button:active {
-    transform: scale(0.85); /* Shrinks the button down */
-}

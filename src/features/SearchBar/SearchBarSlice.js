@@ -6,10 +6,15 @@ import timeSince from '../../components/TimeSince';
 // Async thunk for Reddit JSON fetch request
 export const search = createAsyncThunk(
     'searchBar/search',
-    async (searchTerm) => {
+    async ({ searchTerm, subreddit }) => {
         // insert fetch request here
         const encodedTerm = encodeURIComponent(searchTerm);
-        const url = `https://www.reddit.com/search.json?q=${encodedTerm}&limit=20`;
+        let url = `https://www.reddit.com/search.json?q=${encodedTerm}&limit=20`;
+        console.log(`url: ${url}`)
+        if (subreddit) {
+          url = `https://www.reddit.com/${subreddit}search.json?q=${encodedTerm}&restrict_sr=1&limit=20`;
+        }
+        console.log(`new url: ${url}`)
         const response = await fetch(url);
 
         if (!response.ok) {
