@@ -56,6 +56,12 @@ export default function DetailedView() {
         dispatch(clearSelectedItem());
     };
 
+    const handleBackgroundClick = (e) => {
+        if (e.target === e.currentTarget) {
+            handleCloseDetailed();
+        }
+    };
+
     const handleVideoError = () => {
         setVideoError(true);
     };
@@ -74,7 +80,7 @@ export default function DetailedView() {
     };
 
     return (
-        <div className="detailedPost">
+        <div className="detailedViewOverlay" onClick={handleBackgroundClick}><div className="detailedPost">
             <div className="header-container">
                 {subredditIcon ? (
                     <div className="subredditIconContainer">
@@ -169,6 +175,6 @@ export default function DetailedView() {
 
 
             <Comments />
-        </div>
+        </div></div>
     );
 };
