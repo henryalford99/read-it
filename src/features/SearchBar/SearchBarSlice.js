@@ -8,7 +8,7 @@ export const search = createAsyncThunk(
     'searchBar/search',
     async ({ trimmedSearchTerm, subreddit }) => {
         // insert fetch request here
-        const encodedTerm = encodeURIComponent(trimmedSearchTerm;
+        const encodedTerm = encodeURIComponent(trimmedSearchTerm);
         let url = `https://www.reddit.com/search.json?q=${encodedTerm}&limit=20`;
         console.log(`url: ${url}`)
         if (subreddit) {
