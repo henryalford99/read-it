@@ -91,22 +91,21 @@ export default function DetailedView() {
                     </div>
                 )}
                 <div className="detailed-aboveTitle">
-                    <div className="detailed-lineone">
                     <a 
-                        href={`https://www.reddit.com/${post.subreddit}`} 
-                        className="detailed-postSubReddit" 
-                        target="_blank" rel="noopener noreferrer" aria-label="Visit subreddit"
-                        onClick={handleSaveSubreddit}
+                    href={`https://www.reddit.com/${post.subreddit}`} 
+                    className="detailed-postSubReddit" 
+                    target="_blank" rel="noopener noreferrer" aria-label="Visit subreddit"
+                    onClick={handleSaveSubreddit}
                     >
                         {post.subreddit}
                     </a>
-                        <div className="detailed-circle-divider"></div>
-                        <p className="detailed-postTime"> {post.time}</p>
-                    </div>
+                    <div className="detailed-circle-divider"></div>
+                    <p className="detailed-postTime"> {post.time}</p>
+                    <div className="detailed-circle-divider"></div>
                     <a
-                        href={`https://www.reddit.com/user/${post.author}`}
-                        target="_blank" rel="noopener noreferrer" aria-label="Visit post author"
-                        className="detailed-postAuthor"
+                    href={`https://www.reddit.com/user/${post.author}`}
+                    target="_blank" rel="noopener noreferrer" aria-label="Visit post author"
+                    className="detailed-postAuthor"
                     >
                         {post.author}
                     </a>
