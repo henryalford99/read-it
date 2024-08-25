@@ -1,8 +1,6 @@
 // Import createSlice here.
 import { createSlice } from '@reduxjs/toolkit';
 
-  
-
 // Options object for Subreddits Slice:
 const options = {
     name: 'subreddits',

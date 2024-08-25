@@ -6,9 +6,9 @@ import timeSince from '../../components/TimeSince';
 // Async thunk for Reddit JSON fetch request
 export const search = createAsyncThunk(
     'searchBar/search',
-    async ({ searchTerm, subreddit }) => {
+    async ({ trimmedSearchTerm, subreddit }) => {
         // insert fetch request here
-        const encodedTerm = encodeURIComponent(searchTerm);
+        const encodedTerm = encodeURIComponent(trimmedSearchTerm;
         let url = `https://www.reddit.com/search.json?q=${encodedTerm}&limit=20`;
         console.log(`url: ${url}`)
         if (subreddit) {
