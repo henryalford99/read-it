@@ -5,16 +5,17 @@
   
 .subreddits-button {
     color: white;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
     border: none;
     cursor: pointer;
     background-color: black;
     height: 51px;
-    font-family: 'Sacramento', 'Brush Script MT', cursive;
+    font-family: 'Tahoma', 'Impact', 'Arial Black', sans-serif;
 }
   
 .subreddits-list {
-    display: none;
+    display: block;
     position: absolute;
     background-color: #f1f1f1;
     min-width: 160px;
@@ -23,7 +24,7 @@
     z-index: 2000;
     left: 50%;
     transform: translateX(-50%);
-    top: 55px;
+    top: 51px;
     overflow-x: hidden; /* Prevent horizontal overflow */
     white-space: nowrap; /* Prevent text wrapping */
 }
@@ -31,17 +32,57 @@
 .subreddits-dropdown:hover .subreddits-list {
     display: block;
 }
+
+.toggle-button {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: black;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+    transition: color 0.3s ease;
+}
   
-.subreddit-item {
-    padding: 12px 16px;
+.subreddit-item, .toggleFlex {
+    padding: 8px 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     white-space: nowrap; /* Prevent text wrapping */
     cursor: pointer;
 }
-.subreddit-item:hover {
+.subreddit-item:hover, .toggle-button:hover {
     background-color: #cccccc;
+}
+
+
+/* Title styling */
+.toggle-title {
+    margin-right: 8px; /* Space between title and arrow */
+    padding: 0;
+    margin: 0;
+    font-family: 'Tahoma', 'Impact', 'Arial Black', sans-serif;
+    font-weight: bold;
+}
+
+/* Arrow styling */
+.toggle-arrow {
+    transition: transform 0.6s ease; /* Smooth rotation transition */
+    font-size: 1.2rem; /* Adjust font size as needed */
+    padding: 0;
+    margin: 0;
+}
+
+/* Rotation for the arrow when visible */
+.toggle-arrow.up {
+    transform: rotate(180deg); /* Rotate up arrow to point down */
+}
+
+/* Rotation for the arrow when hidden */
+.toggle-arrow.down {
+    transform: rotate(0deg); /* Default rotation for down arrow */
 }
   
 .remove-button {
@@ -68,16 +109,40 @@
     color: white; /* Changes minus sign color to white when hovered over */
 }
 
+.subreddit-item {
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap; /* Prevent text wrapping */
+    cursor: pointer;
+}
+
+.subreddit-icon {
+    width: 24px; /* Adjust size as needed */
+    height: 24px; /* Adjust size as needed */
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.subredditWithIcon {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+
 
 /* Subreddit Search Bar */
 .subredditSearch {
     width: 100%; /* Make the search bar take up the full width */
+    box-sizing: border-box;
     padding: 12px 16px;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     background-color: #f1f1f1;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    border: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
 }
 
 .search-input {
@@ -102,7 +167,6 @@
     list-style-type: none;
     padding: 0;
     margin: 10px 0 0 0;
-    max-height: 150px; /* Limit the height of the search results list */
     overflow-y: auto;
     background-color: #f1f1f1;
     border-top: 1px solid #ccc;

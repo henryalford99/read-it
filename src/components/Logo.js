@@ -4,10 +4,9 @@ import './Logo.css'
 const Logo = () => {
     return (
         <div className="logo-container">
-            <button className="logo-button">Read it</button>
-            <div className="about-dropdown">
-                <p><a href="https://www.reddit.com" target="_blank" rel="noopener noreferrer">and weep</a>.</p>
-            </div>
+            <a href="https://www.reddit.com" target="_blank" rel="noopener noreferrer">
+                <button className="logo-button">READ IT</button>
+            </a>
         </div>
     );
 };

@@ -11,7 +11,7 @@
 }
 
 .search-subreddit-container {
-    display: none;
+    display: flex;
     gap: 6px;
     background-color: #ff4400;
     padding: 5px 10px;
@@ -21,9 +21,6 @@
     justify-content: space-around;
     font-size: 0.7rem;
     font-weight: bold;
-}
-.search-subreddit-container.visible {
-    display: flex;
 }
   
 .resetButton {
@@ -46,8 +43,16 @@
     color: white; /* White X on hover */
 }
 
+/* Subreddit Icon */
+.searchSubredditIcon {
+    width: 24px; /* Adjust size as needed */
+    height: 24px; /* Adjust size as needed */
+    border-radius: 50%;
+}
+
+
   
-/* Styling for the search input */
+/* Search input */
 .searchInput {
     flex-grow: 1;
     font-size: 0.9rem;
@@ -68,7 +73,6 @@
     border: none; /* Ensure border is consistent */
     box-shadow: 0 0 0px 1000px white inset !important; /* Force a white background */
 }
-
 /* Autofill styling for Firefox */
 .searchInput:-moz-autofill {
     background: inherit !important; /* Ensure background matches parent */
@@ -76,13 +80,13 @@
     border: none; /* Ensure border is consistent */
     box-shadow: 0 0 0px 1000px white inset !important; /* Force a white background */
 }
-
-  
+ 
 .searchButton {
     border: none;
     background: none;
     cursor: pointer;
 }
+
 
 
   
