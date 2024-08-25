@@ -18,14 +18,17 @@ export default function SearchBar() {
     if (trimmedSearchTerm.length === 0) {
       return;
     }
+
     let formattedSearchSubreddit = '';
-    if (searchSubreddit.name) {
+    if (searchSubreddit && searchSubreddit.name) {
       formattedSearchSubreddit = `${searchSubreddit.name}/`;
     }
-    dispatch(search({trimmedSearchTerm, subreddit: formattedSearchSubreddit}));
+
+    dispatch(search({ trimmedSearchTerm, subreddit: formattedSearchSubreddit }));
     setSearchTerm('');
     console.log(trimmedSearchTerm);
   };
+
 
   const handleSelectSubreddit = (subreddit) => {
     dispatch(selectSubreddit(subreddit));

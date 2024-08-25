@@ -28,9 +28,9 @@ export default function InitialView() {
 
     return (
         <div className="postHolder">
-            {loading && <p>Loading...</p>}
-            {error && <p>Error: Retry search.</p>}
-            {allPosts && allPosts.map((result) => (
+            {loading && <p id="loadingMessage">Loading...</p>}
+            {error ? <p id="errorMessage">...oops! An error occurred. Please try your search again.</p> :
+            allPosts && allPosts.map((result) => (
                 <div className="postFlex" key={result.id} onClick={() => handleResultSelection(result.id)}>
                     <div className="post">
                         <div className="aboveTitle">
