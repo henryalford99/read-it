@@ -13,6 +13,7 @@
     z-index: 1001;
     text-align: left;
     margin: 0;
+    border-radius: 8px;
 }
 
 .detailedViewOverlay {

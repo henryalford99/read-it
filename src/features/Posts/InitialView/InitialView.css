@@ -9,6 +9,7 @@
     cursor: pointer;
     background-color: white;
     transition: background-color 0.2s ease;
+    border-radius: 5px;
 }
 .postFlex:hover {
     background-color: rgb(234, 234, 234);
