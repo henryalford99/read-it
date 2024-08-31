@@ -27,19 +27,6 @@ const Subreddits = () => {
     return defaultIconURL;
   };
 
-  useEffect(() => {
-    const fetchIconsForSavedSubreddits = async () => {
-      for (const subreddit of savedSubreddits) {
-        if (!subreddit.icon) {
-          const icon = await fetchSubredditIcon(subreddit.name);
-          dispatch(setSubredditIcon({ name: subreddit.name, icon }));
-        }
-      }
-    };
-
-    fetchIconsForSavedSubreddits();
-  }, [savedSubreddits, dispatch]);
-
   const toggleSavedVisibility = () => {
     setSavedVisible(!savedVisible);
   };
@@ -113,7 +100,6 @@ const Subreddits = () => {
         {savedVisible && savedSubreddits.map(subreddit => (
           <div key={subreddit.name} className="subreddit-item" onClick={() => handleSelect(subreddit)}>
             <div className="subredditWithIcon">
-              {subreddit.icon && <img src={subreddit.icon} alt={`${subreddit.name} icon`} className="subreddit-icon" />}
               <span>{subreddit.name}</span>
             </div>
             <button onClick={() => handleRemove(subreddit.name)} className="remove-button">-</button>

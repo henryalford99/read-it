@@ -178,7 +178,7 @@
 .upvote, .downvote {
     background: none;
     border: none;
-    font-size: 30px; 
+    font-size: 1.3rem;  
     color: gray; 
     cursor: pointer;
     padding: 0 10px; 
@@ -197,8 +197,8 @@
     color: #cc0000;
 }
 .detailed-postUpvotes {
-    font-size: 1.5rem; 
-    margin: 0 10px; 
+    font-size: 1.3rem; 
+    margin: 0 20px; 
     transition: color 0.3s ease; /* Smooth transition for color change */
 }
 

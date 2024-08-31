@@ -13,10 +13,10 @@
 .search-subreddit-container {
     display: flex;
     gap: 6px;
-    background-color: #ff4400;
+    background-color: #dbcab4;
     padding: 5px 10px;
     border-radius: 25px;
-    color: white;
+    color: black;
     align-items: center;
     justify-content: space-around;
     font-size: 0.7rem;

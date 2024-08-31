@@ -1,10 +1,12 @@
 /* InitialView.css */
 .postHolder {
     min-height: 100vh;
+    width: 100%;
     background-image: url('../../../assets/background.jpg');
-    background-size: cover;
+    background-size: 100% auto;
     background-repeat: repeat;
     background-position: center;
+    padding: 10px 0;
 }
 
 #loadingMessage, #errorMessage {
