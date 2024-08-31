@@ -2,35 +2,38 @@
     margin-top: 20px;
     overflow-y: auto;
 }
+
 .commentsButton {
     cursor: pointer;
     font-size: 20px;
     border: 1px solid black;
     padding: 15px;
     text-align: center;
+    transition: background-color 0.3s ease, font-size 0.3s ease; /* Combine hover effects */
 }
+
 .commentsButton:hover {
     background-color: rgba(0, 0, 0, 0.245);
-    color: black;
     border: none;
     font-size: 21px;
 }
 
 .comment {
     background-color: rgba(128, 128, 128, 0.099);
-    transition: background-color 0.5s ease;
+    transition: background-color 0.5s ease, box-shadow 0.5s ease; /* Combine transition properties */
     margin: 8px 5px;
     display: flex;
-    justify-content: space-between;
-    flex-direction: column;
+    justify-content: space-between; /* Assuming you need this for children */
+    flex-direction: column; /* If needed, otherwise remove */
 }
+
 .comment:hover {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.463);
 }
 
 .commenter-container {
     display: flex;
-    align-items: left;
+    align-items: flex-start; /* Fixed invalid value */
     justify-content: center;
     gap: 10px;
     margin: 10px;
@@ -40,17 +43,17 @@
 .commenter {
     text-decoration: none;
     color: #0079d3;
-    margin: 0;
 }
+
 .commenter:hover {
     color: #015291;
 }
 
-.commentTime {
+.commentTime,
+.commentBody { /* Combine selectors */
     margin: 0;
 }
 
 .commentBody {
-    margin: 0;
     padding: 0 20px 20px;
 }

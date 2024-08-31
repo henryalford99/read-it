@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { search } from "./SearchBarSlice";
-import { selectSavedSubreddits, selectSubreddit, selectSelectedSubreddit, removeSubreddit } from "../Subreddits/SubredditsSlice";
+import { selectSubreddit, selectSelectedSubreddit, removeSubreddit } from "../Subreddits/SubredditsSlice";
 import './SearchBar.css';
 import logo from '../../assets/search-icon.svg'
 
 
 export default function SearchBar() {
   const dispatch = useDispatch();
-  const savedSubreddits = useSelector(selectSavedSubreddits);
   const searchSubreddit = useSelector(selectSelectedSubreddit);
   const [searchTerm, setSearchTerm] = useState("");
   const [placeholder, setPlaceholder] = useState('search Reddit...');
@@ -51,15 +50,6 @@ export default function SearchBar() {
     dispatch(search({ trimmedSearchTerm, subreddit: formattedSearchSubreddit }));
     setSearchTerm('');
     console.log(trimmedSearchTerm);
-  };
-
-
-  const handleSelectSubreddit = (subreddit) => {
-    dispatch(selectSubreddit(subreddit));
-  };
-
-  const handleRemove = (subreddit) => {
-    dispatch(removeSubreddit(subreddit));
   };
 
   return (

@@ -107,9 +107,9 @@ export default function DetailedView() {
                     >
                         {post.subreddit}
                     </a>
-                    <div className="detailed-circle-divider"></div>
+                    <div className="detailed-circle-divider-1"></div>
                     <p className="detailed-postTime"> {post.time}</p>
-                    <div className="detailed-circle-divider"></div>
+                    <div className="detailed-circle-divider-2"></div>
                     <a
                     href={`https://www.reddit.com/user/${post.author}`}
                     target="_blank" rel="noopener noreferrer" aria-label="Visit post author"

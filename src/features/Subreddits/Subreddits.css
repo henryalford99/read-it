@@ -1,11 +1,13 @@
+/* Dropdown Container */
 .subreddits-dropdown {
     position: relative;
     display: inline-flex;
     flex-direction: column;
-    justify-content: center;
     align-items: end;
+    justify-content: center;
 }
-  
+
+/* Button Styles */
 .subreddits-button {
     color: #dcd4c9;
     font-size: 1.5rem;
@@ -16,8 +18,10 @@
     height: 51px;
     font-family: 'Tahoma', 'Impact', 'Arial Black', sans-serif;
     padding-right: 25px;
+    transition: font-size 0.3s ease;
 }
-  
+
+/* Subreddits List */
 .subreddits-list {
     display: none;
     position: absolute;
@@ -31,11 +35,12 @@
     overflow-x: hidden; /* Prevent horizontal overflow */
     white-space: nowrap; /* Prevent text wrapping */
 }
-  
+
 .subreddits-dropdown:hover .subreddits-list {
     display: block;
 }
 
+/* Toggle Button */
 .toggle-button {
     background: none;
     border: none;
@@ -47,55 +52,52 @@
     box-sizing: border-box;
     transition: color 0.3s ease;
 }
-  
-.subreddit-item, .toggleFlex {
+
+/* Item Styles */
+.subreddit-item, .toggleFlex, .search-results li {
     padding: 8px 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
 }
-.subreddit-item:hover, .toggle-button:hover {
+.subreddit-item:hover, .toggle-button:hover, .search-results li:hover {
     background-color: #cccccc;
 }
 
-
-/* Title styling */
-.toggle-title {
-    margin-right: 8px; /* Space between title and arrow */
+/* Title and Arrow Styling */
+.toggle-title, .toggle-arrow {
     padding: 0;
     margin: 0;
     font-family: 'Tahoma', 'Impact', 'Arial Black', sans-serif;
     font-weight: bold;
 }
 
-/* Arrow styling */
+.toggle-title {
+    margin-right: 8px; /* Space between title and arrow */
+}
+
 .toggle-arrow {
     transition: transform 0.6s ease; /* Smooth rotation transition */
     font-size: 1.2rem; /* Adjust font size as needed */
-    padding: 0;
-    margin: 0;
 }
 
-/* Rotation for the arrow when visible */
+/* Arrow Rotation */
 .toggle-arrow.up {
     transform: rotate(180deg); /* Rotate up arrow to point down */
 }
 
-/* Rotation for the arrow when hidden */
 .toggle-arrow.down {
     transform: rotate(0deg); /* Default rotation for down arrow */
 }
 
+/* Remove Button */
 .remove-button {
     background-color: transparent;
     color: black;
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    padding-bottom: 5px;
-    padding-left: 6px;
-    font-size: 2rem;
     width: 20px; 
     height: 20px;
     display: flex;
@@ -103,6 +105,8 @@
     justify-content: center;
     margin-left: 10px;
     line-height: 1; /* Ensures the minus sign is vertically centered */
+    padding: 0 6px 5px 6px;
+    font-size: 2rem;
     transition: background-color 0.3s ease;
 }
 
@@ -132,6 +136,7 @@
     outline: none;
     background-color: #f9f9f9; /* Matches the dropdown background */
     color: #333;
+    transition: background-color 0.2s ease;
 }
 
 .search-input::placeholder {
@@ -142,6 +147,7 @@
     background-color: #e9e9e9; /* Slightly darker background when focused */
 }
 
+/* Search Results */
 .search-results {
     list-style-type: none;
     padding: 0;
@@ -149,16 +155,6 @@
     overflow-y: auto;
     background-color: #f1f1f1;
     border-top: 1px solid #ccc;
-}
-
-.search-results li {
-    padding: 8px 16px;
-    cursor: pointer;
-    background-color: #f1f1f1;
-}
-
-.search-results li:hover {
-    background-color: #cccccc;
 }
 
 /* Media Queries */
@@ -193,8 +189,9 @@
         right: 0px;
         border-radius: 0 0 0 10px;
         padding: 0 10px;
+        height: 30px;
     }
     .subreddits-list {
-       top: 70px;
+       top: 48px;
     }
 }
