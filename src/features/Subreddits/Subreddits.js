@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectSavedSubreddits, removeSubreddit, selectSubreddit, addSubreddit, setSubredditIcon } from './SubredditsSlice';
 import './Subreddits.css';
+import fetchSubredditIcon from '../../components/fetchSubredditIcon';
 
 const Subreddits = () => {
   
@@ -11,27 +12,13 @@ const Subreddits = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [savedVisible, setSavedVisible] = useState(true);
-  
-  // Function to fetch subreddit icon
-  const fetchSubredditIcon = async (subredditName) => {
-    const defaultIconURL = 'https://styles.redditmedia.com/t5_6/styles/communityIcon_a8uzjit9bwr21.png';
-    try {
-      const response = await fetch(`https://www.reddit.com/${subredditName}/about.json`);
-      if (response.ok) {
-        const data = await response.json();
-        return data.data.icon_img || defaultIconURL;
-      }
-    } catch (error) {
-      console.error(`Error fetching icon for ${subredditName}:`, error);
-    }
-    return defaultIconURL;
-  };
 
   const toggleSavedVisibility = () => {
     setSavedVisible(!savedVisible);
   };
 
-  const handleRemove = (subreddit) => {
+  const handleRemove = (e, subreddit) => {
+    e.stopPropagation();  // Prevent the event from propagating to the parent
     dispatch(removeSubreddit(subreddit));
   };
 
@@ -102,7 +89,7 @@ const Subreddits = () => {
             <div className="subredditWithIcon">
               <span>{subreddit.name}</span>
             </div>
-            <button onClick={() => handleRemove(subreddit.name)} className="remove-button">-</button>
+            <button onClick={(e) => handleRemove(e, subreddit.name)} className="remove-button">-</button>
           </div>
         ))}
       </div>

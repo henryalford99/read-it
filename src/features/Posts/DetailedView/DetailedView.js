@@ -4,12 +4,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { selectSelectedResult, clearSelectedItem } from "../postsSlice";
 import { fetchComments } from '../../Comments/CommentsSlice';
 import Comments from "../../Comments/Comments.js";
-import { addSubreddit } from "../../Subreddits/SubredditsSlice.js";
+import { addSubreddit, selectSavedSubreddits } from "../../Subreddits/SubredditsSlice.js";
+import fetchSubredditIcon from "../../../components/fetchSubredditIcon.js";
 
 
 export default function DetailedView() {
     const dispatch = useDispatch();
     const post = useSelector(selectSelectedResult);
+    const savedSubreddits = useSelector(selectSavedSubreddits);
     const [videoError, setVideoError] = useState(false);
     const [subredditIcon, setSubredditIcon] = useState(null);
     const [upvoted, setUpvoted] = useState(false);
@@ -28,29 +30,13 @@ export default function DetailedView() {
     useEffect(() => {
         if (post) {
             dispatch(fetchComments(post));
-            fetchSubredditInfo(post.subreddit).then(icon => setSubredditIcon(icon));
+            fetchSubredditIcon(post.subreddit).then(icon => setSubredditIcon(icon));
         }
     }, [dispatch, post]);
 
     if (!post) {
         return null; // Return null if no post is selected
     }
-
-    const fetchSubredditInfo = async (subredditName) => {
-        try {
-            const response = await fetch(`https://www.reddit.com/${subredditName}/about.json`);
-            if (response.ok) {
-                const data = await response.json();
-                return data.data.icon_img;
-            } else {
-                console.error('Error fetching subreddit info:', response.status, response.statusText);
-                return null;
-            }
-        } catch (error) {
-            console.error("Error fetching subreddit info:", error);
-            return null;
-        }
-    };
 
     const handleCloseDetailed = () => {
         dispatch(clearSelectedItem());
@@ -70,9 +56,25 @@ export default function DetailedView() {
         setVideoError(false);
     };
 
-    const handleSaveSubreddit = () => {
-        dispatch(addSubreddit(post.subreddit));
-        console.log(`Saving subreddit: ${post.subreddit}`);
+    const handleSaveSubreddit = async () => {
+        const subredditName = post.subreddit;
+
+        // Check if subreddit is already saved
+        if (savedSubreddits.some(sub => sub.name === subredditName)) {
+            console.log(`Subreddit ${subredditName} is already saved.`);
+            return; // Exit the function if subreddit is already saved
+        }
+
+        // Fetch the subreddit icon if not already set
+        const icon = subredditIcon || await fetchSubredditIcon(subredditName);
+
+        const subredditObject = {
+            name: subredditName,
+            icon,
+        };
+
+        dispatch(addSubreddit(subredditObject));
+        console.log(`Saving subreddit: ${subredditName}`);
     };
 
     const isImageUrl = (url) => {
