@@ -1,6 +1,9 @@
 .subreddits-dropdown {
     position: relative;
-    display: inline-block;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
 }
   
 .subreddits-button {
@@ -12,6 +15,7 @@
     background-color: black;
     height: 51px;
     font-family: 'Tahoma', 'Impact', 'Arial Black', sans-serif;
+    padding-right: 25px;
 }
   
 .subreddits-list {
@@ -22,8 +26,7 @@
     max-width: calc(100vw - 20px); /* Prevent overflow off the page */
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 2000;
-    left: 50%;
-    transform: translateX(-50%);
+    right: -10px;
     top: 51px;
     overflow-x: hidden; /* Prevent horizontal overflow */
     white-space: nowrap; /* Prevent text wrapping */
@@ -50,7 +53,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    white-space: nowrap; /* Prevent text wrapping */
     cursor: pointer;
 }
 .subreddit-item:hover, .toggle-button:hover {
@@ -84,7 +86,7 @@
 .toggle-arrow.down {
     transform: rotate(0deg); /* Default rotation for down arrow */
 }
-  
+
 .remove-button {
     background-color: transparent;
     color: black;
@@ -108,29 +110,6 @@
     background-color: #ff4400;
     color: white; /* Changes minus sign color to white when hovered over */
 }
-
-.subreddit-item {
-    padding: 12px 16px;
-    display: flex;
-    align-items: center;
-    white-space: nowrap; /* Prevent text wrapping */
-    cursor: pointer;
-}
-
-.subreddit-icon {
-    width: 24px; /* Adjust size as needed */
-    height: 24px; /* Adjust size as needed */
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
-.subredditWithIcon {
-    display: flex;
-    align-items: center;
-    justify-content: start;
-}
-
-
 
 /* Subreddit Search Bar */
 .subredditSearch {
@@ -176,9 +155,46 @@
     padding: 8px 16px;
     cursor: pointer;
     background-color: #f1f1f1;
-    white-space: nowrap;
 }
 
 .search-results li:hover {
     background-color: #cccccc;
+}
+
+/* Media Queries */
+@media (max-width: 800px) {
+    .subreddits-button {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 725px) {
+    .subreddits-button {
+        font-size: 1.2rem;
+    }
+    .subreddit {
+        display: inline-block;
+        max-width: 18ch;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+@media (max-width: 600px) {
+    .subreddits-button {
+        font-size: 1.0rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .subreddits-button {
+        position: absolute;
+        top: 20px;
+        right: 0px;
+        border-radius: 0 0 0 10px;
+        padding: 0 10px;
+    }
+    .subreddits-list {
+       top: 70px;
+    }
 }

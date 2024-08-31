@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { search } from "./SearchBarSlice";
 import { selectSavedSubreddits, selectSubreddit, selectSelectedSubreddit, removeSubreddit } from "../Subreddits/SubredditsSlice";
@@ -11,6 +11,30 @@ export default function SearchBar() {
   const savedSubreddits = useSelector(selectSavedSubreddits);
   const searchSubreddit = useSelector(selectSelectedSubreddit);
   const [searchTerm, setSearchTerm] = useState("");
+  const [placeholder, setPlaceholder] = useState('search Reddit...');
+
+  useEffect(() => {
+    // Function to update the placeholder based on window width
+    const updatePlaceholder = () => {
+      if (window.innerWidth < 1200) {
+        setPlaceholder(searchSubreddit ? 'search subreddit...' : 'search Reddit...');
+      } else {
+        setPlaceholder(searchSubreddit ? `search in ${searchSubreddit.name}...` : 'search Reddit...');
+      }
+    };
+
+    // Initial placeholder setup
+    updatePlaceholder();
+
+    // Add event listener for window resize
+    window.addEventListener('resize', updatePlaceholder);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', updatePlaceholder);
+    };
+  }, [searchSubreddit]);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -42,7 +66,7 @@ export default function SearchBar() {
     <form onSubmit={handleSubmit} className="searchBarForm">
         {searchSubreddit && <div className={'search-subreddit-container'}>
           <img src={searchSubreddit.icon} alt={`${searchSubreddit.name} icon`} className="searchSubredditIcon"/>
-          {searchSubreddit.name}
+          <span className="truncate-text">{searchSubreddit.name}</span>
           <button 
             type="button" 
             className='resetButton'
@@ -57,7 +81,7 @@ export default function SearchBar() {
           type="text"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.currentTarget.value)}
-          placeholder={searchSubreddit ? `search in ${searchSubreddit.name}...` : 'search Reddit...'}
+          placeholder={placeholder}
           className="searchInput"
         />
         <button className="searchButton" type="submit">

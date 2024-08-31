@@ -1,6 +1,6 @@
 .logo-container {
     position: relative;
-    margin: 5px;
+    margin-left: 25px;
 }
 
 .logo-button {
@@ -17,5 +17,12 @@
     text-decoration: underline;
     color: #ff4400;
     cursor: pointer;
+}
+
+/* Media Queries */
+@media (max-width: 800px) {
+    .logo-container {
+      display: none;
+    }
 }
 

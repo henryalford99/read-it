@@ -86,9 +86,7 @@ const Subreddits = () => {
         </button>
         {savedVisible && savedSubreddits.map(subreddit => (
           <div key={subreddit.name} className="subreddit-item" onClick={() => handleSelect(subreddit)}>
-            <div className="subredditWithIcon">
-              <span>{subreddit.name}</span>
-            </div>
+            <span className="subreddit">{subreddit.name}</span>
             <button onClick={(e) => handleRemove(e, subreddit.name)} className="remove-button">-</button>
           </div>
         ))}
