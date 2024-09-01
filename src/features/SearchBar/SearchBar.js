@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { search } from "./SearchBarSlice";
-import { selectSubreddit, selectSelectedSubreddit, removeSubreddit } from "../Subreddits/SubredditsSlice";
+import { selectSubreddit, selectSelectedSubreddit } from "../Subreddits/SubredditsSlice";
 import './SearchBar.css';
 import logo from '../../assets/search-icon.svg'
 

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectSavedSubreddits, removeSubreddit, selectSubreddit, addSubreddit, setSubredditIcon } from './SubredditsSlice';
+import { selectSavedSubreddits, removeSubreddit, selectSubreddit, addSubreddit } from './SubredditsSlice';
 import './Subreddits.css';
 import fetchSubredditIcon from '../../components/fetchSubredditIcon';
 
